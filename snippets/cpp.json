@@ -102,5 +102,11 @@
     "prefix": ["static_assert", "sta"],
     "body": "static_assert(${1: expression}${2:, \"${3:description(C++17: optional)}\"});$0",
     "description": "C++20: static_assert attribute"
+  },
+
+  "ifc": {
+    "prefix": ["if-constexpr", "ifc"],
+    "body": ["if constexpr(${1: expression}){", "$0", "}"],
+    "description": "constexpr if."
   }
 }

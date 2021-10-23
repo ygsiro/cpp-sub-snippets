@@ -35,3 +35,9 @@ concept
 static_assert
 
 + `static_assert`
+
+## [0.0.5] -2021-10-24
+
+if constexpr
+
++ `if constexpr`

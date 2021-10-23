@@ -141,6 +141,16 @@ shortcut: `sta`
 static_assert(${1: expression}${2:, \"${3:description(C++17: optional)}\"});$0
 ```
 
+### if constexpr
+
+shortcut: `ifc`
+
+```text
+if constexpr(${1: expression}){
+  $0
+}
+```
+
 ## Release Notes
 
 ### 0.0.1
@@ -178,3 +188,9 @@ The following snippet was added.
 The following snippet was added.
 
 + [`static_assert`](#static_assert)
+
+### 0.0.5
+
+The following snippet was added.
+
++ [`if constexpr`](#if-constexpr)
