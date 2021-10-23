@@ -1,0 +1,40 @@
+{
+  "#if": {
+    "prefix": "#if",
+    "body": ["#if ${1: expression}", "$0", "#endif // ${1: expression}"],
+    "description": "#if directive"
+  },
+  "#elif": {
+    "prefix": "#elif",
+    "body": "#elif ${1: expression}",
+    "description": "#elif directive"
+  },
+  "#ifdef": {
+    "prefix": "#ifdef",
+    "body": [
+      "#ifdef ${1: expression}",
+      "$0",
+      "#endif // ${1: expression}"
+    ],
+    "description": "#ifdef directive"
+  },
+  "#ifndef": {
+    "prefix": "#ifndef",
+    "body": [
+      "#ifndef ${1: expression}",
+      "$0",
+      "#endif // ${1: expression}"
+    ],
+    "description": "#ifdef directive"
+  },
+  "#inc-g": {
+    "prefix": ["#include-guards", "#hdr"],
+    "body": [
+      "#ifndef ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}",
+      "#define ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}",
+      "$0",
+      "#endif // ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}"
+    ],
+    "description": "include guards."
+  }
+}
