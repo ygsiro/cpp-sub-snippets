@@ -133,6 +133,14 @@ concept ${1: concept_name} = requires (T& ${2:x}){
 };
 ```
 
+### static_assert
+
+shortcut: `sta`
+
+```text
+static_assert(${1: expression}${2:, \"${3:description(C++17: optional)}\"});$0
+```
+
 ## Release Notes
 
 ### 0.0.1
@@ -164,3 +172,9 @@ The following snippet was added.
 The following snippet was added.
 
 + [`concept`](#concept)
+
+### 0.0.4
+
+The following snippet was added.
+
++ [`static_assert`](#static_assert)

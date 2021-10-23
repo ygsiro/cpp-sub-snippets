@@ -96,5 +96,11 @@
       "};"
     ],
     "description": "C++20 concept"
+  },
+
+  "static_assert": {
+    "prefix": ["static_assert", "sta"],
+    "body": "static_assert(${1: expression}${2:, \"${3:description(C++17: optional)}\"});$0",
+    "description": "C++20: static_assert attribute"
   }
 }

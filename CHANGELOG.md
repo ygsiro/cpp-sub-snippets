@@ -29,3 +29,9 @@ attributes
 concept
 
 + `concept`
+
+## [0.0.4] -2021-10-24
+
+static_assert
+
++ `static_assert`
