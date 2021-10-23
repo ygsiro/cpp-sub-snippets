@@ -9,3 +9,17 @@ preprocessing.
 + `#ifdef`
 + `#ifndef`
 + `#inc-g`
+
+## [0.0.2] -2021-10-24
+
+attributes
+
++ `[[noreturn]]`
++ `[[carries_dependency]]`
++ `[[deprecated]]`
++ `[[maybe_unused]]`
++ `[[nodiscard]]`
++ `[[fallthrough]]`
++ `[[no_unique_address]]`
++ `[[likely]]`
++ `[[unlikely]]`
