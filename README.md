@@ -122,6 +122,17 @@ C++20
 [[unlikely]]$0
 ```
 
+### concept
+
+C++20
+
+```text
+template <class T>
+concept ${1: concept_name} = requires (T& ${2:x}){
+    $0
+};
+```
+
 ## Release Notes
 
 ### 0.0.1
@@ -147,3 +158,9 @@ The following snippet was added.
 + [`[[no_unique_address]]`](#no_unique_address)
 + [`[[likely]]`](#likely)
 + [`[[unlikely]]`](#unlikely)
+
+### 0.0.3
+
+The following snippet was added.
+
++ [`concept`](#concept)

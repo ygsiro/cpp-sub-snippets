@@ -85,5 +85,16 @@
     "prefix": ["unlikely"],
     "body": "[[unlikely]]$0",
     "description": "C++20: unlikely attribute"
+  },
+
+  "concept": {
+    "prefix": "concept",
+    "body": [
+      "template <class T>",
+      "concept ${1: concept_name} = requires (T& ${2:x}){",
+      "  $0",
+      "};"
+    ],
+    "description": "C++20 concept"
   }
 }
