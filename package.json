@@ -1,20 +1,28 @@
 {
-    "name": "cpp-sub-snippets",
-    "displayName": "C++ Snippets",
-    "description": "code snippets for C++",
-    "version": "0.0.8",
-    "engines": {
-        "vscode": "^1.61.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "'cpp'",
-                "path": "./snippets/cpp.json"
-            }
-        ]
-    }
+  "name": "cpp-sub-snippets",
+  "displayName": "C++ Snippets",
+  "description": "code snippets for C++",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "'cpp'",
+        "path": "./snippets/cpp.json"
+      }
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/ygsiro/cpp-sub-snippets/issues",
+    "email": "entoyukari@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ygsiro/cpp-sub-snippets.git"
+  }
 }
