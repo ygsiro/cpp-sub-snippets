@@ -2,7 +2,7 @@
   "name": "cpp-sub-snippets",
   "displayName": "C++ Snippets",
   "description": "code snippets for C++",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "ygsiro",
   "engines": {
     "vscode": "^1.61.0"
