@@ -13,7 +13,7 @@
   "contributes": {
     "snippets": [
       {
-        "language": "'cpp'",
+        "language": "cpp",
         "path": "./snippets/cpp.json"
       }
     ]
