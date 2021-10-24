@@ -34,6 +34,8 @@ The basic snippets as of VS Code (ver1.61) are as follows.
 
 Add a snippet other than the above.
 
+[Example](docs/snippets.md)
+
 + `#if`
 + `#elif`
 + `#else`
