@@ -164,5 +164,6 @@ alignas($1)
 ## alignof
 
 ```cpp
+//C++11
 alignof($1)
 ```
