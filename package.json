@@ -17,6 +17,7 @@
       }
     ]
   },
+  "license": "MIT LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/ygsiro/cpp-sub-snippets/issues",
     "email": "entoyukari@gmail.com"
