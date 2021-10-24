@@ -56,6 +56,8 @@ $0
 #endif // $1
 ```
 
+If the file name is `header.hpp`, the default value of `$1` is `HEADER_HPP`.
+
 ## has-include
 
 ```cpp
