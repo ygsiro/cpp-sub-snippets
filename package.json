@@ -3,6 +3,7 @@
   "displayName": "C++ Snippets",
   "description": "code snippets for C++",
   "version": "1.0.0",
+  "publisher": "ygsiro",
   "engines": {
     "vscode": "^1.61.0"
   },
