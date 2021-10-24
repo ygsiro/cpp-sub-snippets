@@ -1,18 +1,27 @@
 # Change Log
 
-## [0.0.1] -2021-10-24
+## [0.0.6] -2021-10-24
+### Added
 
-preprocessing.
++ `try catch`
 
-+ `#if`
-+ `#else`
-+ `#ifdef`
-+ `#ifndef`
-+ `#inc-g`
+## [0.0.5] -2021-10-24
+### Added
+
++ `if constexpr`
+
+## [0.0.4] -2021-10-24
+### Added
+
++ `static_assert`
+
+## [0.0.3] -2021-10-24
+### Added
+
++ `concept`
 
 ## [0.0.2] -2021-10-24
-
-attributes
+### Added
 
 + `[[noreturn]]`
 + `[[carries_dependency]]`
@@ -24,20 +33,11 @@ attributes
 + `[[likely]]`
 + `[[unlikely]]`
 
-## [0.0.3] -2021-10-24
+## [0.0.1] -2021-10-24
+### Added
 
-concept
-
-+ `concept`
-
-## [0.0.4] -2021-10-24
-
-static_assert
-
-+ `static_assert`
-
-## [0.0.5] -2021-10-24
-
-if constexpr
-
-+ `if constexpr`
++ `#if`
++ `#else`
++ `#ifdef`
++ `#ifndef`
++ `#inc-g`

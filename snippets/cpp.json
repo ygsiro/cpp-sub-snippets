@@ -108,5 +108,15 @@
     "prefix": ["if-constexpr", "ifc"],
     "body": ["if constexpr(${1: expression}){", "$0", "}"],
     "description": "constexpr if."
+  },
+
+  "try-catch":{
+    "prefix": ["try catch"],
+    "body": [
+      "try{",
+      "$0",
+      "}catch(${1: exception}){",
+      "}"],
+    "description": "try catch."
   }
 }

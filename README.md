@@ -151,17 +151,40 @@ if constexpr(${1: expression}){
 }
 ```
 
+### try catch
+
+```text
+try{
+  $0
+}catch(${1: except}){
+}
+```
+
 ## Release Notes
 
-### 0.0.1
+### 0.0.6
 
 The following snippet was added.
 
-+ [`#if`](#if)
-+ [`#elif`](#elif)
-+ [`#ifdef`](#ifdef)
-+ [`#ifndef`](#ifndef)
-+ [`#include guards`](#include-guards)
++ [`try catch`](#try-catch)
+
+### 0.0.5
+
+The following snippet was added.
+
++ [`if constexpr`](#if-constexpr)
+
+### 0.0.4
+
+The following snippet was added.
+
++ [`static_assert`](#static_assert)
+
+### 0.0.3
+
+The following snippet was added.
+
++ [`concept`](#concept)
 
 ### 0.0.2
 
@@ -177,20 +200,12 @@ The following snippet was added.
 + [`[[likely]]`](#likely)
 + [`[[unlikely]]`](#unlikely)
 
-### 0.0.3
+### 0.0.1
 
 The following snippet was added.
 
-+ [`concept`](#concept)
-
-### 0.0.4
-
-The following snippet was added.
-
-+ [`static_assert`](#static_assert)
-
-### 0.0.5
-
-The following snippet was added.
-
-+ [`if constexpr`](#if-constexpr)
++ [`#if`](#if)
++ [`#elif`](#elif)
++ [`#ifdef`](#ifdef)
++ [`#ifndef`](#ifndef)
++ [`#include guards`](#include-guards)
