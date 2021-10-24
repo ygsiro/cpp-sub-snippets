@@ -1,5 +1,7 @@
 # cpp-sub-snippets README
 
+![icon](images/icon.png)
+
 C++ Snippets list.
 
 The basic snippets as of VS Code (ver1.61) are as follows.
