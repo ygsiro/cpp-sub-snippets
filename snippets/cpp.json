@@ -9,6 +9,16 @@
     "body": "#elif ${1: expression}",
     "description": "#elif directive"
   },
+  "#else": {
+    "prefix": "#else",
+    "body": "#else",
+    "description": "#else directive"
+  },
+  "#define": {
+    "prefix": "#define",
+    "body": "#define ${1: def}",
+    "description": "#define directive"
+  },
   "#ifdef": {
     "prefix": "#ifdef",
     "body": [
@@ -36,6 +46,16 @@
       "#endif // ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}"
     ],
     "description": "include guards."
+  },
+  "has-include":{
+    "prefix": "has-include",
+    "body": [
+      "#if __has_include(${1:headder})",
+      "$0",
+      "#else",
+      "#endif"
+    ],
+    "description": "C++17: __has_include"
   },
 
   "noreturn": {
@@ -95,7 +115,7 @@
       "  $0",
       "};"
     ],
-    "description": "C++20 concept"
+    "description": "C++20: concept"
   },
 
   "static_assert": {
@@ -107,16 +127,17 @@
   "ifc": {
     "prefix": ["if-constexpr", "ifc"],
     "body": ["if constexpr(${1: expression}){", "$0", "}"],
-    "description": "constexpr if."
+    "description": "C++17: constexpr if."
   },
 
-  "try-catch":{
-    "prefix": ["try catch"],
-    "body": [
-      "try{",
-      "$0",
-      "}catch(${1: exception}){",
-      "}"],
-    "description": "try catch."
+  "alignas":{
+    "prefix": "alignas",
+    "body": "alignas(${1: byte})",
+    "description": "C++11: alignas"
+  },
+  "alignof":{
+    "prefix": "alignof",
+    "body": "alignof(${1: type})",
+    "description": "C++11: alignof"
   }
 }
