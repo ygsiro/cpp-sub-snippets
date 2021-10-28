@@ -47,6 +47,11 @@
     ],
     "description": "include guards."
   },
+  "#include": {
+    "prefix": ["#include", "#inc"],
+    "body": ["#include"],
+    "description": "#include directive"
+  },
   "has-include":{
     "prefix": "has-include",
     "body": [
