@@ -45,6 +45,14 @@ $0
 #endif // $1
 ```
 
+## #include
+
+shortcut: `#inc`
+
+```cpp
+#include 
+```
+
 ## #include-guards
 
 shortcut: `#hdr`

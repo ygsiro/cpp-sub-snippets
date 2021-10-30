@@ -49,7 +49,7 @@
   },
   "#include": {
     "prefix": ["#include", "#inc"],
-    "body": ["#include"],
+    "body": ["#include "],
     "description": "#include directive"
   },
   "has-include":{

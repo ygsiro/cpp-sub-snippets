@@ -42,6 +42,7 @@ Add a snippet other than the above.
 + `#define`
 + `#ifdef`
 + `#ifndef`
++ `#include`(`#inc`)
 + `#include-guards`(`#hdr`)
 + `has-include`
 + `noreturn`
