@@ -177,3 +177,18 @@ alignas($1)
 //C++11
 alignof($1)
 ```
+
+## using new name
+
+```cpp
+//C++11
+using ${1:identifier} = ${2:type};$0
+```
+
+## template using new name
+
+```cpp
+//C++11
+template<${1|class,typename|} ${2:T}>
+using ${3:identifier} = ${4:type}<${2:T}>;$0
+```

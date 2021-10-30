@@ -59,3 +59,5 @@ Add a snippet other than the above.
 + `if-constexpr`(`ifc`)
 + `alignas`
 + `alignof`
++ `using new name`
++ `template using new name`

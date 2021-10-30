@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2021-10-30
+
+### Added-1.1.2
+
++ `using new name`
++ `template using new name`
+
 ## [1.1.0] - 2021-10-30
 
 ### Added-1.1.0

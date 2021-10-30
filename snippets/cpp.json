@@ -140,9 +140,24 @@
     "body": "alignas(${1: byte})",
     "description": "C++11: alignas"
   },
+
   "alignof":{
     "prefix": "alignof",
     "body": "alignof(${1: type})",
     "description": "C++11: alignof"
+  },
+
+  "using":{
+    "prefix": "using new name",
+    "body": "using ${1:identifier} = ${2:type};$0",
+    "description": "C++11: using directive"
+  },
+  "tmp_using":{
+    "prefix": "template using new name",
+    "body": [
+      "template<${1|class,typename|} ${2:T}>",
+      "using ${3:identifier} = ${4:type}<${2:T}>;$0"
+    ],
+    "description": "C++11: template using directive"
   }
 }
