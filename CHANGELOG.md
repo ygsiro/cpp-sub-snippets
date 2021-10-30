@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2021-10-30
+
++ `user defined literal integral`(`udli`)
++ `user defined literal float`(`udlf`)
++ `user defined literal character`(`udlc`)
++ `user defined literal string`(`udls`)
++ `user defined literal raw`(`udlr`)
++ `user defined literal template`(`udlt`)
+
 ## [1.2.0] - 2021-10-30
 
 ### Added-1.1.2

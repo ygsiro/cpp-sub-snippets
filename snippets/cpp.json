@@ -159,5 +159,60 @@
       "using ${3:identifier} = ${4:type}<${2:T}>;$0"
     ],
     "description": "C++11: template using directive"
+  },
+  "user_defined_literal_integral":{
+    "prefix": ["user defined literal integral", "udli"],
+    "body": [
+      "${1:ReturnType} operator \"\" _${2:suffix}(unsigned long long ${3:count}){",
+      "\treturn ${1:ReturnType}();$0",
+      "}"
+    ],
+    "description": "C++11: Literal operator for user-defined INTEGRAL literal"
+  },
+  "user_defined_literal_floating":{
+    "prefix": ["user defined literal floating", "udlf"],
+    "body": [
+      "${1:ReturnType} operator \"\" _${2:suffix}(long double ${3:count}){",
+      "\treturn ${1:ReturnType}();$0",
+      "}"
+    ],
+    "description": "C++11: Literal operator for user-defined FLOATING literal"
+  },
+  "user_defined_literal_character":{
+    "prefix": ["user defined literal character", "udlc"],
+    "body": [
+      "${1:ReturnType} operator \"\" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){",
+      "\treturn ${1:ReturnType}();$0",
+      "}"
+    ],
+    "description": "C++11: Literal operator for user-defined CHARACTER literal"
+  },
+  "user_defined_literal_string":{
+    "prefix": ["user defined literal string", "udls"],
+    "body": [
+      "${1:ReturnType} operator \"\" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){",
+      "\treturn ${1:ReturnType}();$0",
+      "}"
+    ],
+    "description": "C++11: Literal operator for user-defined STRING literal"
+  },
+  "user_defined_literal_raw":{
+    "prefix": ["user defined literal raw", "udlr"],
+    "body": [
+      "${1:ReturnType} operator \"\" _${2:suffix}(const char* ${3:str}){",
+      "\treturn ${1:ReturnType}();$0",
+      "}"
+    ],
+    "description": "C++11: Literal operator for user-defined STRING literal"
+  },
+  "user_defined_literal_template":{
+    "prefix": ["user defined literal template", "udlt"],
+    "body": [
+      "template<char... ${1:S}>",
+      "${2:ReturnType} operator \"\" _${3:suffix}(){",
+      "\treturn ${2:ReturnType}();$0",
+      "}"
+    ],
+    "description": "C++11: Literal operator template"
   }
 }

@@ -61,3 +61,9 @@ Add a snippet other than the above.
 + `alignof`
 + `using new name`
 + `template using new name`
++ `user defined literal integral`(`udli`)
++ `user defined literal float`(`udlf`)
++ `user defined literal character`(`udlc`)
++ `user defined literal string`(`udls`)
++ `user defined literal raw`(`udlr`)
++ `user defined literal template`(`udlt`)

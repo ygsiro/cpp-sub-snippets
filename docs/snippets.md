@@ -192,3 +192,64 @@ using ${1:identifier} = ${2:type};$0
 template<${1|class,typename|} ${2:T}>
 using ${3:identifier} = ${4:type}<${2:T}>;$0
 ```
+
+## user defined literal integral
+
+shortcut: `udli`
+
+```c++
+${1:ReturnType} operator "" _${2:suffix}(unsigned long long ${3:count}){
+  return ${1:ReturnType}();$0
+}
+```
+
+## user defined literal float
+
+shortcut: `udlf`
+
+```c++
+${1:ReturnType} operator "" _${2:suffix}(long double ${3:count}){
+  return ${1:ReturnType}();$0
+}
+```
+
+## user defined literal character
+
+shortcut: `udlc`
+
+```c++
+${1:ReturnType} operator "" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){
+  return ${1:ReturnType}();$0
+}
+```
+
+## user defined literal string
+
+shortcut: `udls`
+
+```c++
+${1:ReturnType} operator "" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){
+  return ${1:ReturnType}();$0
+}
+```
+
+## user defined literal raw
+
+shortcut: `udlr`
+
+```c++
+${1:ReturnType} operator "" _${2:suffix}(const char* ${3:str}){
+  return ${1:ReturnType}();$0
+}
+```
+
+## user defined literal template
+
+shortcut: `udlt`
+
+```c++
+template<char... ${1:S}>
+${2:ReturnType} operator "" _${3:suffix}(){
+  return ${2:ReturnType}();$0
+}
+```
