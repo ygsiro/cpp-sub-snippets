@@ -214,5 +214,39 @@
       "}"
     ],
     "description": "C++11: Literal operator template"
+  },
+  "coroutine_generator": {
+    "prefix": ["coroutine generator class"],
+    "body": [
+      "class ${1:generator}{",
+      "public:",
+      "  struct promise_type;",
+      "  using handle = std::coroutine_handle<promise_type>;",
+      "  struct promise_type{",
+      "    ${3:T} ${4:current_value};",
+      "    static auto get_return_object_on_allocation_failure() { return ${1:generator}{nullptr}; }",
+      "    auto get_return_object() { return ${1:generator}{handle::from_promise(*this)}; }",
+      "    auto initial_suspend() { return std::suspend_always{}; }",
+      "    auto final_suspend() noexcept { return std::suspend_always{}; }",
+      "    void unhandled_exception() { std::terminate(); }",
+      "    void ${5|return_void,return_value|}() {$0}",
+      "    auto yield_value(${3:T} value){",
+      "      ${4:current_value} = value;",
+      "      return std::suspend_always{};",
+      "    }",
+      "  };",
+      "",
+      "  ${1:generator}(${1:generator} const&) = delete;",
+      "  ${1:generator}(${1:generator}&& rhs)noexcept",
+      "    :${2:coro_}(rhs.${2:coro_}){rhs.${2:coro_} = nullptr;}",
+      "  ~${1:generator}(){if(${2:coro_}) ${2:coro_}.destroy();}",
+      "  bool move_next() { return ${2:coro_}? (${2:coro_}.resume(), !${2:coro_}.done()) : false; }",
+      "  ${3: T} ${4:current_value}(){return ${2:coro_}.promise().${4:current_value}; }",
+      "private:",
+      "  ${1:generator}(handle h):${2:coro_}(h){}",
+      "  handle ${2:coro_};",
+      "};"
+    ],
+    "description": "C++20: Coroutine generator class"
   }
 }

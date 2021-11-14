@@ -67,3 +67,4 @@ Add a snippet other than the above.
 + `user defined literal string`(`udls`)
 + `user defined literal raw`(`udlr`)
 + `user defined literal template`(`udlt`)
++ `coroutine generator class`
