@@ -1,40 +1,12 @@
-# cpp-sub-snippets README
+# README
 
-![icon](images/icon.png)
+This extension adds snippets that are not provided by default.
 
-C++ Snippets list.
+## Release Notes
 
-The basic snippets as of VS Code (ver1.61) are as follows.
+### 1.0.0
 
-+ `class`
-+ `classi`
-+ `classt`
-+ `do`
-+ `elif`
-+ `else`
-+ `for`
-+ `forr`
-+ `forrange`
-+ `if`
-+ `ifd`
-+ `ifel`
-+ `ifelif`
-+ `ifnd`
-+ `main`
-+ `mitl`
-+ `namesp`
-+ `struct`
-+ `switch`
-+ `try`
-+ `union`
-+ `while`
-+ `wmain`
-+ `#endregion`
-+ `#region`
-
-Add a snippet other than the above.
-
-[Example](docs/snippets.md)
+Preprocessor and attribute keywords and keyword
 
 + `#if`
 + `#elif`
@@ -42,7 +14,6 @@ Add a snippet other than the above.
 + `#define`
 + `#ifdef`
 + `#ifndef`
-+ `#include`(`#inc`)
 + `#include-guards`(`#hdr`)
 + `has-include`
 + `noreturn`
@@ -59,15 +30,45 @@ Add a snippet other than the above.
 + `if-constexpr`(`ifc`)
 + `alignas`
 + `alignof`
+
+### 1.1.0
+
+Preprocessor
+
++ `#include`
+
+### 1.2.0
+
+`using` keyword
+
 + `using new name`
 + `template using new name`
+
+### 1.3.0
+
+user defined literal
+
 + `user defined literal integral`(`udli`)
 + `user defined literal float`(`udlf`)
 + `user defined literal character`(`udlc`)
 + `user defined literal string`(`udls`)
 + `user defined literal raw`(`udlr`)
 + `user defined literal template`(`udlt`)
+
+### 1.4.0
+
+C++20 coroutine class sample
+
 + `coroutine generator class`
+
+### 1.5.0
+
+Select an attribute from the list.
+
+The numbers correspond to the relevant C++ version.
+
+example: `attr11` - C++11 attribute
+
 + `attr11`
 + `attr14`
 + `attr17`
