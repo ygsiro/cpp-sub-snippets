@@ -73,3 +73,11 @@ example: `attr11` - C++11 attribute
 + `attr14`
 + `attr17`
 + `attr20`
+
+### 1.5.2
+
+update: `#hdr`
+
+before: `abc.def.hpp` -> `ABC.DEF_HPP`
+
+after: `abc.def.hpp` -> `ABC_DEF_HPP`

@@ -32,10 +32,10 @@
   "#inc-g": {
     "prefix": ["#include-guards", "#hdr"],
     "body": [
-      "#ifndef ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}",
-      "#define ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}",
+      "#ifndef ${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}",
+      "#define ${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}",
       "$0",
-      "#endif // ${1:${TM_FILENAME/(.+)\\.(.+)/${1:/upcase}_${2:/upcase}/}}"
+      "#endif // ${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}"
     ],
     "description": "include guards."
   },
