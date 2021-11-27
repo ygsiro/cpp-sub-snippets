@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2021-11-27
+
+Select an attribute from the list.
+
+The numbers correspond to the relevant C++ version.
+
+example: `attr11` - C++11 attribute
+
++ `attr11`
++ `attr14`
++ `attr17`
++ `attr20`
+
 ## [1.4.0] - 2021-11-15
 
 + `coroutine generator class`

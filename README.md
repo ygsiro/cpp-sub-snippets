@@ -68,3 +68,7 @@ Add a snippet other than the above.
 + `user defined literal raw`(`udlr`)
 + `user defined literal template`(`udlt`)
 + `coroutine generator class`
++ `attr11`
++ `attr14`
++ `attr17`
++ `attr20`

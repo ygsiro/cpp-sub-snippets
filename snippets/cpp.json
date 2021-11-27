@@ -21,20 +21,12 @@
   },
   "#ifdef": {
     "prefix": "#ifdef",
-    "body": [
-      "#ifdef ${1: expression}",
-      "$0",
-      "#endif // ${1: expression}"
-    ],
+    "body": ["#ifdef ${1: expression}", "$0", "#endif // ${1: expression}"],
     "description": "#ifdef directive"
   },
   "#ifndef": {
     "prefix": "#ifndef",
-    "body": [
-      "#ifndef ${1: expression}",
-      "$0",
-      "#endif // ${1: expression}"
-    ],
+    "body": ["#ifndef ${1: expression}", "$0", "#endif // ${1: expression}"],
     "description": "#ifdef directive"
   },
   "#inc-g": {
@@ -52,14 +44,9 @@
     "body": ["#include "],
     "description": "#include directive"
   },
-  "has-include":{
+  "has-include": {
     "prefix": "has-include",
-    "body": [
-      "#if __has_include(${1:headder})",
-      "$0",
-      "#else",
-      "#endif"
-    ],
+    "body": ["#if __has_include(${1:headder})", "$0", "#else", "#endif"],
     "description": "C++17: __has_include"
   },
 
@@ -135,24 +122,24 @@
     "description": "C++17: constexpr if."
   },
 
-  "alignas":{
+  "alignas": {
     "prefix": "alignas",
     "body": "alignas(${1: byte})",
     "description": "C++11: alignas"
   },
 
-  "alignof":{
+  "alignof": {
     "prefix": "alignof",
     "body": "alignof(${1: type})",
     "description": "C++11: alignof"
   },
 
-  "using":{
+  "using": {
     "prefix": "using new name",
     "body": "using ${1:identifier} = ${2:type};$0",
     "description": "C++11: using directive"
   },
-  "tmp_using":{
+  "tmp_using": {
     "prefix": "template using new name",
     "body": [
       "template<${1|class,typename|} ${2:T}>",
@@ -160,7 +147,7 @@
     ],
     "description": "C++11: template using directive"
   },
-  "user_defined_literal_integral":{
+  "user_defined_literal_integral": {
     "prefix": ["user defined literal integral", "udli"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(unsigned long long ${3:count}){",
@@ -169,7 +156,7 @@
     ],
     "description": "C++11: Literal operator for user-defined INTEGRAL literal"
   },
-  "user_defined_literal_floating":{
+  "user_defined_literal_floating": {
     "prefix": ["user defined literal floating", "udlf"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(long double ${3:count}){",
@@ -178,7 +165,7 @@
     ],
     "description": "C++11: Literal operator for user-defined FLOATING literal"
   },
-  "user_defined_literal_character":{
+  "user_defined_literal_character": {
     "prefix": ["user defined literal character", "udlc"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){",
@@ -187,7 +174,7 @@
     ],
     "description": "C++11: Literal operator for user-defined CHARACTER literal"
   },
-  "user_defined_literal_string":{
+  "user_defined_literal_string": {
     "prefix": ["user defined literal string", "udls"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){",
@@ -196,7 +183,7 @@
     ],
     "description": "C++11: Literal operator for user-defined STRING literal"
   },
-  "user_defined_literal_raw":{
+  "user_defined_literal_raw": {
     "prefix": ["user defined literal raw", "udlr"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(const char* ${3:str}){",
@@ -205,7 +192,7 @@
     ],
     "description": "C++11: Literal operator for user-defined STRING literal"
   },
-  "user_defined_literal_template":{
+  "user_defined_literal_template": {
     "prefix": ["user defined literal template", "udlt"],
     "body": [
       "template<char... ${1:S}>",
@@ -248,5 +235,29 @@
       "};"
     ],
     "description": "C++20: Coroutine generator class"
+  },
+  "attribute_cpp11": {
+    "prefix": "attr11",
+    "body": ["[[${1|noreturn,carries_dependency|}]]"],
+    "description": "C++11 Attribute"
+  },
+  "attribute_cpp14": {
+    "prefix": "attr14",
+    "body": ["[[${1|noreturn,carries_dependency,deprecated(\"reason\")|}]]"],
+    "description": "C++14 Attribute"
+  },
+  "attribute_cpp17": {
+    "prefix": "attr17",
+    "body": [
+      "[[${1|noreturn,carries_dependency,deprecated(\"reason\"),maybe_unused,nodiscard,fallthrough|}]]"
+    ],
+    "description": "C++17 Attribute"
+  },
+  "attribute_cpp20": {
+    "prefix": "attr20",
+    "body": [
+      "[[${1|noreturn,carries_dependency,deprecated(\"reason\"),maybe_unused,nodiscard(\"optional: reason\"),fallthrough,no_unique_address,likely,unlikely|}]]"
+    ],
+    "description": "C++20 Attribute. It is optional to state the reason for the nodiscard."
   }
 }

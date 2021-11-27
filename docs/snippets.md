@@ -288,3 +288,19 @@ private:
   handle ${2:coro_};
 };
 ```
+
+## attr11,14,17,20
+
+```c++
+//attr11
+[[${1|noreturn,carries_dependency|}]]
+
+//attr14
+[[${1|noreturn,carries_dependency,deprecated("reason")|}]]
+
+//attr17
+[[${1|noreturn,carries_dependency,deprecated("reason"),maybe_unused,nodiscard,fallthrough|}]]
+
+//attr20
+[[${1|noreturn,carries_dependency,deprecated("reason"),maybe_unused,nodiscard("optional: reason"),fallthrough,no_unique_address,likely,unlikely|}]]
+```
