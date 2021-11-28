@@ -2,6 +2,8 @@
 
 This extension adds snippets that are not provided by default.
 
+![animation](images/hdr_animation.gif)
+
 ## Release Notes
 
 ### 1.0.0
