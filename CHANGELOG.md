@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [1.5.4] - 2022-03-13
+
++ `clang-format-off`
+
+## [1.5.2] - 2021-11-27
+
+update: `#hdr`
+
+before: `abc.def.hpp` -> `ABC.DEF_HPP`
+
+after: `abc.def.hpp` -> `ABC_DEF_HPP`
+
 ## [1.5.0] - 2021-11-27
 
 Select an attribute from the list.
