@@ -83,3 +83,7 @@ update: `#hdr`
 before: `abc.def.hpp` -> `ABC.DEF_HPP`
 
 after: `abc.def.hpp` -> `ABC_DEF_HPP`
+
+### 1.5.4
+
++ `clang-format-off`

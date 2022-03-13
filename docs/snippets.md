@@ -304,3 +304,13 @@ private:
 //attr20
 [[${1|noreturn,carries_dependency,deprecated("reason"),maybe_unused,nodiscard("optional: reason"),fallthrough,no_unique_address,likely,unlikely|}]]
 ```
+
+## clang-format-off
+
+```c++
+// clang-format off
+${0:$TM_SELECTED_TEXT}
+// clang-format on
+```
+
+![clang-format-off-sample](../images/clang-format-off.gif)

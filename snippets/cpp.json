@@ -259,5 +259,14 @@
       "[[${1|noreturn,carries_dependency,deprecated(\"reason\"),maybe_unused,nodiscard(\"optional: reason\"),fallthrough,no_unique_address,likely,unlikely|}]]"
     ],
     "description": "C++20 Attribute. It is optional to state the reason for the nodiscard."
+  },
+  "clang_format_off":{
+    "prefix": "clang-format-off",
+    "body": [
+      "// clang-format off",
+      "${0:$TM_SELECTED_TEXT}",
+      "// clang-format on"
+    ],
+    "description": "clang-format off"
   }
 }
