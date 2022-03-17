@@ -87,3 +87,7 @@ after: `abc.def.hpp` -> `ABC_DEF_HPP`
 ### 1.5.4
 
 + `clang-format-off`
+
+### 1.6.0
+
+refactor

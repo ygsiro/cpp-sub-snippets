@@ -190,7 +190,7 @@ using ${1:identifier} = ${2:type};$0
 ```cpp
 //C++11
 template<${1|class,typename|} ${2:T}>
-using ${3:identifier} = ${4:type}<${2:T}>;$0
+using ${3:identifier} = ${4:type}<$2>;$0
 ```
 
 ## user defined literal integral
@@ -199,7 +199,7 @@ shortcut: `udli`
 
 ```c++
 ${1:ReturnType} operator "" _${2:suffix}(unsigned long long ${3:count}){
-  return ${1:ReturnType}();$0
+  return $1();$0
 }
 ```
 
@@ -209,7 +209,7 @@ shortcut: `udlf`
 
 ```c++
 ${1:ReturnType} operator "" _${2:suffix}(long double ${3:count}){
-  return ${1:ReturnType}();$0
+  return $1();$0
 }
 ```
 
@@ -219,7 +219,7 @@ shortcut: `udlc`
 
 ```c++
 ${1:ReturnType} operator "" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){
-  return ${1:ReturnType}();$0
+  return $1();$0
 }
 ```
 
@@ -229,7 +229,7 @@ shortcut: `udls`
 
 ```c++
 ${1:ReturnType} operator "" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){
-  return ${1:ReturnType}();$0
+  return $1();$0
 }
 ```
 
@@ -239,7 +239,7 @@ shortcut: `udlr`
 
 ```c++
 ${1:ReturnType} operator "" _${2:suffix}(const char* ${3:str}){
-  return ${1:ReturnType}();$0
+  return $1();$0
 }
 ```
 
@@ -250,7 +250,7 @@ shortcut: `udlt`
 ```c++
 template<char... ${1:S}>
 ${2:ReturnType} operator "" _${3:suffix}(){
-  return ${2:ReturnType}();$0
+  return $2();$0
 }
 ```
 
@@ -265,27 +265,27 @@ public:
   using handle = std::coroutine_handle<promise_type>;
   struct promise_type{
     ${3:T} ${4:current_value};
-    static auto get_return_object_on_allocation_failure() { return ${1:generator}{nullptr}; }
-    auto get_return_object() { return ${1:generator}{handle::from_promise(*this)}; }
+    static auto get_return_object_on_allocation_failure() { return $1{nullptr}; }
+    auto get_return_object() { return $1{handle::from_promise(*this)}; }
     auto initial_suspend() { return std::suspend_always{}; }
     auto final_suspend() noexcept { return std::suspend_always{}; }
     void unhandled_exception() { std::terminate(); }
     void ${5|return_void,return_value|}() {$0}
-    auto yield_value(${3:T} value){
-      ${4:current_value} = value;
+    auto yield_value($3 value){
+      $4 = value;
       return std::suspend_always{};
     }
   };
 
-  ${1:generator}(${1:generator} const&) = delete;
-  ${1:generator}(${1:generator}&& rhs)noexcept
-    :${2:coro_}(rhs.${2:coro_}){rhs.${2:coro_} = nullptr;}
-  ~${1:generator}(){if(${2:coro_}) ${2:coro_}.destroy();}
-  bool move_next() { return ${2:coro_}? (${2:coro_}.resume(), !${2:coro_}.done()) : false; }
-  ${3: T} ${4:current_value}(){return ${2:coro_}.promise().${4:current_value}; }
+  $1($1 const&) = delete;
+  $1($1&& rhs)noexcept
+    :${2:coro_}(rhs.$2){rhs.$2 = nullptr;}
+  ~$1(){if($2) $2.destroy();}
+  bool move_next() { return $2? ($2.resume(), !$2.done()) : false; }
+  $3 $4(){return $2.promise().$4; }
 private:
-  ${1:generator}(handle h):${2:coro_}(h){}
-  handle ${2:coro_};
+  $1(handle h):$2(h){}
+  handle $2;
 };
 ```
 

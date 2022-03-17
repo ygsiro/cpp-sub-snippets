@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.6.0] - 2022-03-18
+
+refactor
+
 ## [1.5.4] - 2022-03-13
 
 + `clang-format-off`
