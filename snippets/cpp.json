@@ -1,7 +1,7 @@
 {
   "#if": {
     "prefix": "#if",
-    "body": ["#if ${1: expression}", "$0", "#endif // ${1: expression}"],
+    "body": ["#if ${1: expression}", "$0", "#endif // $1"],
     "description": "#if directive"
   },
   "#elif": {
@@ -21,21 +21,21 @@
   },
   "#ifdef": {
     "prefix": "#ifdef",
-    "body": ["#ifdef ${1: expression}", "$0", "#endif // ${1: expression}"],
+    "body": ["#ifdef ${1: expression}", "$0", "#endif // $1"],
     "description": "#ifdef directive"
   },
   "#ifndef": {
     "prefix": "#ifndef",
-    "body": ["#ifndef ${1: expression}", "$0", "#endif // ${1: expression}"],
+    "body": ["#ifndef ${1: expression}", "$0", "#endif // $1"],
     "description": "#ifdef directive"
   },
   "#inc-g": {
     "prefix": ["#include-guards", "#hdr"],
     "body": [
-      "#ifndef ${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}",
-      "#define ${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}",
+      "#ifndef ${1:${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}}",
+      "#define $1",
       "$0",
-      "#endif // ${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}"
+      "#endif // $1"
     ],
     "description": "include guards."
   },
@@ -151,7 +151,7 @@
     "prefix": ["user defined literal integral", "udli"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(unsigned long long ${3:count}){",
-      "\treturn ${1:ReturnType}();$0",
+      "\treturn $1();$0",
       "}"
     ],
     "description": "C++11: Literal operator for user-defined INTEGRAL literal"
@@ -160,7 +160,7 @@
     "prefix": ["user defined literal floating", "udlf"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(long double ${3:count}){",
-      "\treturn ${1:ReturnType}();$0",
+      "\treturn $1();$0",
       "}"
     ],
     "description": "C++11: Literal operator for user-defined FLOATING literal"
@@ -169,7 +169,7 @@
     "prefix": ["user defined literal character", "udlc"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){",
-      "\treturn ${1:ReturnType}();$0",
+      "\treturn $1();$0",
       "}"
     ],
     "description": "C++11: Literal operator for user-defined CHARACTER literal"
@@ -178,7 +178,7 @@
     "prefix": ["user defined literal string", "udls"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){",
-      "\treturn ${1:ReturnType}();$0",
+      "\treturn $1();$0",
       "}"
     ],
     "description": "C++11: Literal operator for user-defined STRING literal"
@@ -187,7 +187,7 @@
     "prefix": ["user defined literal raw", "udlr"],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(const char* ${3:str}){",
-      "\treturn ${1:ReturnType}();$0",
+      "\treturn $1();$0",
       "}"
     ],
     "description": "C++11: Literal operator for user-defined STRING literal"
@@ -197,7 +197,7 @@
     "body": [
       "template<char... ${1:S}>",
       "${2:ReturnType} operator \"\" _${3:suffix}(){",
-      "\treturn ${2:ReturnType}();$0",
+      "\treturn $2();$0",
       "}"
     ],
     "description": "C++11: Literal operator template"
@@ -211,27 +211,27 @@
       "  using handle = std::coroutine_handle<promise_type>;",
       "  struct promise_type{",
       "    ${3:T} ${4:current_value};",
-      "    static auto get_return_object_on_allocation_failure() { return ${1:generator}{nullptr}; }",
-      "    auto get_return_object() { return ${1:generator}{handle::from_promise(*this)}; }",
+      "    static auto get_return_object_on_allocation_failure() { return $1{nullptr}; }",
+      "    auto get_return_object() { return $1{handle::from_promise(*this)}; }",
       "    auto initial_suspend() { return std::suspend_always{}; }",
       "    auto final_suspend() noexcept { return std::suspend_always{}; }",
       "    void unhandled_exception() { std::terminate(); }",
       "    void ${5|return_void,return_value|}() {$0}",
-      "    auto yield_value(${3:T} value){",
-      "      ${4:current_value} = value;",
+      "    auto yield_value($3 value){",
+      "      $4 = value;",
       "      return std::suspend_always{};",
       "    }",
       "  };",
       "",
-      "  ${1:generator}(${1:generator} const&) = delete;",
-      "  ${1:generator}(${1:generator}&& rhs)noexcept",
-      "    :${2:coro_}(rhs.${2:coro_}){rhs.${2:coro_} = nullptr;}",
-      "  ~${1:generator}(){if(${2:coro_}) ${2:coro_}.destroy();}",
-      "  bool move_next() { return ${2:coro_}? (${2:coro_}.resume(), !${2:coro_}.done()) : false; }",
-      "  ${3: T} ${4:current_value}(){return ${2:coro_}.promise().${4:current_value}; }",
+      "  $1($1 const&) = delete;",
+      "  $1($1&& rhs)noexcept",
+      "    :${2:coro_}(rhs.$2){rhs.$2 = nullptr;}",
+      "  ~$1(){if($2) $2.destroy();}",
+      "  bool move_next() { return $2? ($2.resume(), !$2.done()) : false; }",
+      "  $3 $4(){return $2.promise().$4; }",
       "private:",
-      "  ${1:generator}(handle h):${2:coro_}(h){}",
-      "  handle ${2:coro_};",
+      "  $1(handle h):$2(h){}",
+      "  handle $2;",
       "};"
     ],
     "description": "C++20: Coroutine generator class"
