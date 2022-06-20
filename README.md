@@ -91,3 +91,25 @@ after: `abc.def.hpp` -> `ABC_DEF_HPP`
 ### 1.6.0
 
 refactor
+
+### 1.7.0
+
+algorithm header - category: search
+
++ `all_of`(`alg:all_of`)
++ `any_of`(`alg:any_of`)
++ `none_of`(`alg:none_of`)
++ `for_each`(`alg:for_each`)
++ `for_each_n`(`alg:for_each_n`)
++ `find`(`alg:find`)
++ `find_if`(`alg:find_if`)
++ `find_if_not`(`alg:find_if_not`)
++ `find_end`(`alg:find_end`)
++ `find_first_of`(`alg:find_first_of`)
++ `adjacent_find`(`alg:adjacent_find`)
++ `count`(`alg:count`)
++ `count_if`(`alg:count_if`)
++ `mismatch`(`alg:mismatch`)
++ `equal`(`alg:equal`)
++ `search`(`alg:search`)
++ `search_n`(`alg:search_n`)
