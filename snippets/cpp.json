@@ -268,5 +268,91 @@
       "// clang-format on"
     ],
     "description": "clang-format off"
+  },
+  "algorithm/all_of": {
+    "prefix": ["alg:all_of", "all_of"],
+    "body": "std::all_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
+  },
+  "algorithm/any_of": {
+    "prefix": ["alg:any_of", "any_of"],
+    "body": "std::any_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
+  },
+  "algorithm/none_of": {
+    "prefix": ["alg:none_of", "none_of"],
+    "body": "std::none_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
+  },
+  "algorithm/for_each": {
+    "prefix": ["alg:for_each", "for_each"],
+    "body": "std::for_each(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return $3$4;\\}});$0"
+  },
+  "algorithm/for_each_n": {
+    "prefix": ["alg:for_each_n", "for_each_n"],
+    "body": "std::for_each_n(std::begin(${1:var}), ${2:count}, ${3:[](auto ${4:x}){return $4$5;\\}});$0"
+  },
+  "algorithm/find": {
+    "prefix": ["alg:find", "find"],
+    "body": "std::find(std::begin(${1:var}), std::end($1), ${2:value});$0"
+  },
+  "algorithm/find_if": {
+    "prefix": ["alg:find_if", "find_if"],
+    "body": "std::find_if(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
+  },
+  "algorithm/find_if_not": {
+    "prefix": ["alg:find_if_not", "find_if_not"],
+    "body": "std::find_if_not(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
+  },
+  "algorithm/find_end": {
+    "prefix": ["alg:find_end", "find_end"],
+    "body": "std::find_end(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2));$0"
+  },
+  "algorithm/find_first_of": {
+    "prefix": ["alg:find_first_of", "find_first_of"],
+    "body": "std::find_first_of(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2));$0"
+  },
+  "algorithm/adjacent_find": {
+    "prefix": ["alg:adjacent_find", "adjacent_find"],
+    "body": [
+      "std::adjacent_find(std::begin(${1:var}), std::end($1)${3:",
+      ",/*option*/${4:[](auto x, auto y){return ${5:x == y};\\}}});$0"
+    ]
+  },
+  "algorithm/count": {
+    "prefix": ["alg:count", "count"],
+    "body": "std::count(std::begin(${1:var}), std::end($1), ${2:value});$0"
+  },
+  "algorithm/count_if": {
+    "prefix": ["alg:count_if", "count_if"],
+    "body": "std::count_if(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
+  },
+  "algorithm/mismatch": {
+    "prefix": ["alg:mismatch", "mismatch"],
+    "body": [
+      "std::mismatch(std::begin(${1:var1}), std::end($1), std::begin(${2:var2})${3:",
+      "${4:,/*option1*/std::end($2)}",
+      "${5:,/*option2*/${6:BinaryPredicate}}});$0"
+    ]
+  },
+  "algorithm/equal": {
+    "prefix": ["alg:equal", "equal"],
+    "body": [
+      "std::equal(std::begin(${1:var1}), std::end($1), std::begin(${2:var2})${3:",
+      "${4:,/*option1*/std::end($2)}",
+      "${5:,/*option2*/${6:BinaryPredicate}}});$0"
+    ]
+  },
+  "algorithm/search-iterator": {
+    "prefix": ["alg:search:i", "search:i"],
+    "body": [
+      "std::search(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2)${3:",
+      "${4:,/*option*/${5:BinaryPredicate}}});$0"
+    ]
+  },
+  "algorithm/search-searcher": {
+    "prefix": ["alg:search:s", "search:s"],
+    "body": "std::search(std::begin(${1:var1}), std::end($1), ${2:seacher});$0"
+  },
+  "algorithm/search_n": {
+    "prefix": ["alg:search_n", "search_n"],
+    "body": "std::search_n(std::begin(${1:var1}), std::end($1), ${2:count}, ${3:value});$0"
   }
 }

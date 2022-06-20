@@ -197,7 +197,7 @@ using ${3:identifier} = ${4:type}<$2>;$0
 
 shortcut: `udli`
 
-```c++
+```cpp
 ${1:ReturnType} operator "" _${2:suffix}(unsigned long long ${3:count}){
   return $1();$0
 }
@@ -207,7 +207,7 @@ ${1:ReturnType} operator "" _${2:suffix}(unsigned long long ${3:count}){
 
 shortcut: `udlf`
 
-```c++
+```cpp
 ${1:ReturnType} operator "" _${2:suffix}(long double ${3:count}){
   return $1();$0
 }
@@ -217,7 +217,7 @@ ${1:ReturnType} operator "" _${2:suffix}(long double ${3:count}){
 
 shortcut: `udlc`
 
-```c++
+```cpp
 ${1:ReturnType} operator "" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){
   return $1();$0
 }
@@ -227,7 +227,7 @@ ${1:ReturnType} operator "" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${
 
 shortcut: `udls`
 
-```c++
+```cpp
 ${1:ReturnType} operator "" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){
   return $1();$0
 }
@@ -237,7 +237,7 @@ ${1:ReturnType} operator "" _${2:suffix}(${3|const char*,const wchar_t*,const ch
 
 shortcut: `udlr`
 
-```c++
+```cpp
 ${1:ReturnType} operator "" _${2:suffix}(const char* ${3:str}){
   return $1();$0
 }
@@ -247,7 +247,7 @@ ${1:ReturnType} operator "" _${2:suffix}(const char* ${3:str}){
 
 shortcut: `udlt`
 
-```c++
+```cpp
 template<char... ${1:S}>
 ${2:ReturnType} operator "" _${3:suffix}(){
   return $2();$0
@@ -258,7 +258,7 @@ ${2:ReturnType} operator "" _${3:suffix}(){
 
 `#include <coroutine>`
 
-```c++
+```cpp
 class ${1:generator}{
 public:
   struct promise_type;
@@ -291,7 +291,7 @@ private:
 
 ## attr11,14,17,20
 
-```c++
+```cpp
 //attr11
 [[${1|noreturn,carries_dependency|}]]
 
@@ -307,10 +307,126 @@ private:
 
 ## clang-format-off
 
-```c++
+```cpp
 // clang-format off
 ${0:$TM_SELECTED_TEXT}
 // clang-format on
 ```
 
 ![clang-format-off-sample](../images/clang-format-off.gif)
+
+## all_of (alg:all_of)
+
+```cpp
+std::all_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0
+```
+
+## any_of (alg:any_of)
+
+```cpp
+std::any_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0
+```
+
+## none_of (alg:none_of)
+
+```cpp
+std::none_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0
+```
+
+## for_each (alg:for_each)
+
+```cpp
+std::for_each(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return $3$4;\\}});$0
+```
+
+## for_each_n (alg:for_each_n)
+
+```cpp
+std::for_each_n(std::begin(${1:var}), ${2:count ${3:[](auto ${4:x}){return $4$5;\\}});$0
+```
+
+## find (alg:find)
+
+```cpp
+std::find(std::begin(${1:var}), std::end($1), ${2:value});$0
+```
+
+## find_if (alg:find_if)
+
+```cpp
+std::find_if(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0
+```
+
+## find_if_not (alg:find_if_not)
+
+```cpp
+std::find_if_not(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0
+```
+
+## find_end (alg:find_end)
+
+```cpp
+std::find_end(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2));$0
+```
+
+## find_first_of (alg:find_first_of)
+
+```cpp
+std::find_first_of(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2));$0
+```
+
+## adjacent_find (alg:adjacent_find)
+
+```cpp
+std::adjacent_find(std::begin(${1:var}), std::end($1)${3:
+,/*option*/${4:[](auto x, auto y){return ${5:x == y};\\}}});$0
+```
+
+## count (alg:count)
+
+```cpp
+std::count(std::begin(${1:var}), std::end($1), ${2:value});$0
+```
+
+## count_if (alg:count_if)
+
+```cpp
+std::count_if(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0
+```
+
+## mismatch (alg:mismatch)
+
+```cpp
+std::mismatch(std::begin(${1:var1}), std::end($1), std::begin(${2:var2})${3:
+${4:,/*option1*/std::end($2)}
+${5:,/*option2*/${6:BinaryPredicate}}});$0
+```
+
+## equal (alg:equal)
+
+```cpp
+
+std::equal(std::begin(${1:var1}), std::end($1), std::begin(${2:var2})${3:
+${4:,/*option1*/std::end($2)}
+${5:,/*option2*/${6:BinaryPredicate}}});$0
+```
+
+## search:i (alg:search:i)
+
+```cpp
+
+std::search(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2)${3:
+${4:,/*option*/${5:BinaryPredicate}}});$0
+```
+
+## search:s (alg:search:s)
+
+```cpp
+std::search(std::begin(${1:var1}), std::end($1), ${2:seacher});$0
+```
+
+## search_n (alg:search_n)
+
+```cpp
+std::search_n(std::begin(${1:var1}), std::end($1), ${2:count ${3:value});$0
+```
