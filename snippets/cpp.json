@@ -1,7 +1,11 @@
 {
   "#if": {
     "prefix": "#if",
-    "body": ["#if ${1: expression}", "$0", "#endif // $1"],
+    "body": [
+      "#if ${1: expression}",
+      "$0",
+      "#endif // $1"
+    ],
     "description": "#if directive"
   },
   "#elif": {
@@ -21,16 +25,27 @@
   },
   "#ifdef": {
     "prefix": "#ifdef",
-    "body": ["#ifdef ${1: expression}", "$0", "#endif // $1"],
+    "body": [
+      "#ifdef ${1: expression}",
+      "$0",
+      "#endif // $1"
+    ],
     "description": "#ifdef directive"
   },
   "#ifndef": {
     "prefix": "#ifndef",
-    "body": ["#ifndef ${1: expression}", "$0", "#endif // $1"],
+    "body": [
+      "#ifndef ${1: expression}",
+      "$0",
+      "#endif // $1"
+    ],
     "description": "#ifdef directive"
   },
   "#inc-g": {
-    "prefix": ["#include-guards", "#hdr"],
+    "prefix": [
+      "#include-guards",
+      "#hdr"
+    ],
     "body": [
       "#ifndef ${1:${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}}",
       "#define $1",
@@ -40,65 +55,95 @@
     "description": "include guards."
   },
   "#include": {
-    "prefix": ["#include", "#inc"],
-    "body": ["#include "],
+    "prefix": [
+      "#include",
+      "#inc"
+    ],
+    "body": [
+      "#include "
+    ],
     "description": "#include directive"
   },
   "has-include": {
     "prefix": "has-include",
-    "body": ["#if __has_include(${1:headder})", "$0", "#else", "#endif"],
+    "body": [
+      "#if __has_include(${1:headder})",
+      "$0",
+      "#else",
+      "#endif"
+    ],
     "description": "C++17: __has_include"
   },
-
   "noreturn": {
-    "prefix": ["noreturn"],
+    "prefix": [
+      "noreturn"
+    ],
     "body": "[[noreturn]]$0",
     "description": "C++11: noreturn attribute"
   },
   "carries_dependency": {
-    "prefix": ["carries_dependency"],
+    "prefix": [
+      "carries_dependency"
+    ],
     "body": "[[carries_dependency]]$0",
     "description": "C++11: carries_dependency attribute"
   },
-
   "deprecated": {
-    "prefix": ["deprecated"],
+    "prefix": [
+      "deprecated"
+    ],
     "body": "[[deprecated(\"${1: description}\")]]$0",
     "description": "C++14: deprecated attribute"
   },
   "nodiscard": {
-    "prefix": ["nodiscard"],
+    "prefix": [
+      "nodiscard"
+    ],
     "body": "[[nodiscard${1:(\"${2: C++20 description}\")}]]$0",
     "description": "C++14: nodiscard attribute"
   },
-
   "maybe_unused": {
-    "prefix": ["maybe_unused"],
+    "prefix": [
+      "maybe_unused"
+    ],
     "body": "[[maybe_unused]]$0",
     "description": "C++17: maybe_unused attribute"
   },
   "fallthrough": {
-    "prefix": ["fallthrough"],
+    "prefix": [
+      "fallthrough"
+    ],
     "body": "[[fallthrough]]$0",
     "description": "C++17: fallthrough attribute"
   },
-
   "no_unique_address": {
-    "prefix": ["no_unique_address"],
+    "prefix": [
+      "no_unique_address"
+    ],
     "body": "[[no_unique_address]]$0",
     "description": "C++20: no_unique_address attribute"
   },
   "likely": {
-    "prefix": ["likely"],
+    "prefix": [
+      "likely"
+    ],
     "body": "[[likely]]$0",
     "description": "C++20: likely attribute"
   },
   "unlikely": {
-    "prefix": ["unlikely"],
+    "prefix": [
+      "unlikely"
+    ],
     "body": "[[unlikely]]$0",
     "description": "C++20: unlikely attribute"
   },
-
+  "assume": {
+    "prefix": [
+      "assume"
+    ],
+    "body": "[[assume(${1:condition})]]",
+    "description": "C++23: assume attribute"
+  },
   "concept": {
     "prefix": "concept",
     "body": [
@@ -109,31 +154,36 @@
     ],
     "description": "C++20: concept"
   },
-
   "static_assert": {
-    "prefix": ["static_assert", "sta"],
+    "prefix": [
+      "static_assert",
+      "sta"
+    ],
     "body": "static_assert(${1: expression}${2:, \"${3:description(C++17: optional)}\"});$0",
     "description": "C++20: static_assert attribute"
   },
-
   "ifc": {
-    "prefix": ["if-constexpr", "ifc"],
-    "body": ["if constexpr(${1: expression}){", "$0", "}"],
+    "prefix": [
+      "if-constexpr",
+      "ifc"
+    ],
+    "body": [
+      "if constexpr(${1: expression}){",
+      "$0",
+      "}"
+    ],
     "description": "C++17: constexpr if."
   },
-
   "alignas": {
     "prefix": "alignas",
     "body": "alignas(${1: byte})",
     "description": "C++11: alignas"
   },
-
   "alignof": {
     "prefix": "alignof",
     "body": "alignof(${1: type})",
     "description": "C++11: alignof"
   },
-
   "using": {
     "prefix": "using new name",
     "body": "using ${1:identifier} = ${2:type};$0",
@@ -148,7 +198,10 @@
     "description": "C++11: template using directive"
   },
   "user_defined_literal_integral": {
-    "prefix": ["user defined literal integral", "udli"],
+    "prefix": [
+      "user defined literal integral",
+      "udli"
+    ],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(unsigned long long ${3:count}){",
       "\treturn $1();$0",
@@ -157,7 +210,10 @@
     "description": "C++11: Literal operator for user-defined INTEGRAL literal"
   },
   "user_defined_literal_floating": {
-    "prefix": ["user defined literal floating", "udlf"],
+    "prefix": [
+      "user defined literal floating",
+      "udlf"
+    ],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(long double ${3:count}){",
       "\treturn $1();$0",
@@ -166,7 +222,10 @@
     "description": "C++11: Literal operator for user-defined FLOATING literal"
   },
   "user_defined_literal_character": {
-    "prefix": ["user defined literal character", "udlc"],
+    "prefix": [
+      "user defined literal character",
+      "udlc"
+    ],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(${3|char,wchar_t,char16_t,char32_t|} ${4:str}){",
       "\treturn $1();$0",
@@ -175,7 +234,10 @@
     "description": "C++11: Literal operator for user-defined CHARACTER literal"
   },
   "user_defined_literal_string": {
-    "prefix": ["user defined literal string", "udls"],
+    "prefix": [
+      "user defined literal string",
+      "udls"
+    ],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(${3|const char*,const wchar_t*,const char16_t*,const char32_t*|} ${4:str}, size_t ${5:N}){",
       "\treturn $1();$0",
@@ -184,7 +246,10 @@
     "description": "C++11: Literal operator for user-defined STRING literal"
   },
   "user_defined_literal_raw": {
-    "prefix": ["user defined literal raw", "udlr"],
+    "prefix": [
+      "user defined literal raw",
+      "udlr"
+    ],
     "body": [
       "${1:ReturnType} operator \"\" _${2:suffix}(const char* ${3:str}){",
       "\treturn $1();$0",
@@ -193,7 +258,10 @@
     "description": "C++11: Literal operator for user-defined STRING literal"
   },
   "user_defined_literal_template": {
-    "prefix": ["user defined literal template", "udlt"],
+    "prefix": [
+      "user defined literal template",
+      "udlt"
+    ],
     "body": [
       "template<char... ${1:S}>",
       "${2:ReturnType} operator \"\" _${3:suffix}(){",
@@ -203,7 +271,9 @@
     "description": "C++11: Literal operator template"
   },
   "coroutine_generator": {
-    "prefix": ["coroutine generator class"],
+    "prefix": [
+      "coroutine generator class"
+    ],
     "body": [
       "class ${1:generator}{",
       "public:",
@@ -238,12 +308,16 @@
   },
   "attribute_cpp11": {
     "prefix": "attr11",
-    "body": ["[[${1|noreturn,carries_dependency|}]]"],
+    "body": [
+      "[[${1|noreturn,carries_dependency|}]]"
+    ],
     "description": "C++11 Attribute"
   },
   "attribute_cpp14": {
     "prefix": "attr14",
-    "body": ["[[${1|noreturn,carries_dependency,deprecated(\"reason\")|}]]"],
+    "body": [
+      "[[${1|noreturn,carries_dependency,deprecated(\"reason\")|}]]"
+    ],
     "description": "C++14 Attribute"
   },
   "attribute_cpp17": {
@@ -260,7 +334,14 @@
     ],
     "description": "C++20 Attribute. It is optional to state the reason for the nodiscard."
   },
-  "clang_format_off":{
+  "attribute_cpp23": {
+    "prefix": "attr23",
+    "body": [
+      "[[${1|noreturn,carries_dependency,deprecated(\"reason\"),maybe_unused,nodiscard(\"optional: reason\"),fallthrough,no_unique_address,likely,unlikely,assume(\"condition\")|}]]"
+    ],
+    "description": "C++23 Attribute. It is optional to state the reason for the nodiscard."
+  },
+  "clang_format_off": {
     "prefix": "clang-format-off",
     "body": [
       "// clang-format off",
@@ -270,62 +351,104 @@
     "description": "clang-format off"
   },
   "algorithm/all_of": {
-    "prefix": ["alg:all_of", "all_of"],
+    "prefix": [
+      "alg:all_of",
+      "all_of"
+    ],
     "body": "std::all_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
   },
   "algorithm/any_of": {
-    "prefix": ["alg:any_of", "any_of"],
+    "prefix": [
+      "alg:any_of",
+      "any_of"
+    ],
     "body": "std::any_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
   },
   "algorithm/none_of": {
-    "prefix": ["alg:none_of", "none_of"],
+    "prefix": [
+      "alg:none_of",
+      "none_of"
+    ],
     "body": "std::none_of(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
   },
   "algorithm/for_each": {
-    "prefix": ["alg:for_each", "for_each"],
+    "prefix": [
+      "alg:for_each",
+      "for_each"
+    ],
     "body": "std::for_each(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return $3$4;\\}});$0"
   },
   "algorithm/for_each_n": {
-    "prefix": ["alg:for_each_n", "for_each_n"],
+    "prefix": [
+      "alg:for_each_n",
+      "for_each_n"
+    ],
     "body": "std::for_each_n(std::begin(${1:var}), ${2:count}, ${3:[](auto ${4:x}){return $4$5;\\}});$0"
   },
   "algorithm/find": {
-    "prefix": ["alg:find", "find"],
+    "prefix": [
+      "alg:find",
+      "find"
+    ],
     "body": "std::find(std::begin(${1:var}), std::end($1), ${2:value});$0"
   },
   "algorithm/find_if": {
-    "prefix": ["alg:find_if", "find_if"],
+    "prefix": [
+      "alg:find_if",
+      "find_if"
+    ],
     "body": "std::find_if(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
   },
   "algorithm/find_if_not": {
-    "prefix": ["alg:find_if_not", "find_if_not"],
+    "prefix": [
+      "alg:find_if_not",
+      "find_if_not"
+    ],
     "body": "std::find_if_not(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
   },
   "algorithm/find_end": {
-    "prefix": ["alg:find_end", "find_end"],
+    "prefix": [
+      "alg:find_end",
+      "find_end"
+    ],
     "body": "std::find_end(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2));$0"
   },
   "algorithm/find_first_of": {
-    "prefix": ["alg:find_first_of", "find_first_of"],
+    "prefix": [
+      "alg:find_first_of",
+      "find_first_of"
+    ],
     "body": "std::find_first_of(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2));$0"
   },
   "algorithm/adjacent_find": {
-    "prefix": ["alg:adjacent_find", "adjacent_find"],
+    "prefix": [
+      "alg:adjacent_find",
+      "adjacent_find"
+    ],
     "body": [
       "std::adjacent_find(std::begin(${1:var}), std::end($1)${3:",
       ",/*option*/${4:[](auto x, auto y){return ${5:x == y};\\}}});$0"
     ]
   },
   "algorithm/count": {
-    "prefix": ["alg:count", "count"],
+    "prefix": [
+      "alg:count",
+      "count"
+    ],
     "body": "std::count(std::begin(${1:var}), std::end($1), ${2:value});$0"
   },
   "algorithm/count_if": {
-    "prefix": ["alg:count_if", "count_if"],
+    "prefix": [
+      "alg:count_if",
+      "count_if"
+    ],
     "body": "std::count_if(std::begin(${1:var}), std::end($1), ${2:[](auto ${3:x}){return ${4:condition};\\}});$0"
   },
   "algorithm/mismatch": {
-    "prefix": ["alg:mismatch", "mismatch"],
+    "prefix": [
+      "alg:mismatch",
+      "mismatch"
+    ],
     "body": [
       "std::mismatch(std::begin(${1:var1}), std::end($1), std::begin(${2:var2})${3:",
       "${4:,/*option1*/std::end($2)}",
@@ -333,7 +456,10 @@
     ]
   },
   "algorithm/equal": {
-    "prefix": ["alg:equal", "equal"],
+    "prefix": [
+      "alg:equal",
+      "equal"
+    ],
     "body": [
       "std::equal(std::begin(${1:var1}), std::end($1), std::begin(${2:var2})${3:",
       "${4:,/*option1*/std::end($2)}",
@@ -341,18 +467,27 @@
     ]
   },
   "algorithm/search-iterator": {
-    "prefix": ["alg:search:i", "search:i"],
+    "prefix": [
+      "alg:search:i",
+      "search:i"
+    ],
     "body": [
       "std::search(std::begin(${1:var1}), std::end($1), std::begin(${2:var2}), std::end($2)${3:",
       "${4:,/*option*/${5:BinaryPredicate}}});$0"
     ]
   },
   "algorithm/search-searcher": {
-    "prefix": ["alg:search:s", "search:s"],
+    "prefix": [
+      "alg:search:s",
+      "search:s"
+    ],
     "body": "std::search(std::begin(${1:var1}), std::end($1), ${2:seacher});$0"
   },
   "algorithm/search_n": {
-    "prefix": ["alg:search_n", "search_n"],
+    "prefix": [
+      "alg:search_n",
+      "search_n"
+    ],
     "body": "std::search_n(std::begin(${1:var1}), std::end($1), ${2:count}, ${3:value});$0"
   }
 }
