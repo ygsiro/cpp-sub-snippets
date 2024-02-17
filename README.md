@@ -117,3 +117,4 @@ algorithm header - category: search
 ### 1.8.0
 
 - `attr23`
+- `assume`
